@@ -1,0 +1,32 @@
+{
+  "kind": "build_request",
+  "title": "Provide final single-file copy-paste-ready Google Chat Jira incident bot (Option B)",
+  "priority": "normal",
+  "requirements": [],
+  "constraints": [
+    "Use English for any user-facing text.",
+    "Do not introduce additional backend services or databases; keep logic in the single Apps Script file at frontend/code.gs.",
+    "Do not modify frontend immutable paths listed in SYSTEM_CONTEXT."
+  ],
+  "nonGoals": [
+    "Adding new bot commands beyond the existing set (hi/help, projects, issues/incidents, create incident, Q&A fallback).",
+    "Adding third-party authentication providers (only Internet Identity is supported on the IC side, but this request is for Apps Script).",
+    "Adding real-time features (WebSockets) or push/email/SMS notifications."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "Prefer English user-facing text."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

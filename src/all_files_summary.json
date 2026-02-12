@@ -1,0 +1,16 @@
+{
+  "backend/main.mo": "Motoko canister exposing a greeting card object and a static avatar blob via public methods.",
+  "feature_evidence.json": "Empty feature evidence report scaffold.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing the purpose of key frontend files.",
+  "frontend/code.gs": "Google Apps Script bot handling Jira incident workflows, configuration loading, and Chat message routing.",
+  "frontend/index.css": "Tailwind‑based global CSS with OKLCH color variables and light/dark mode tokens.",
+  "frontend/index.html": "Basic HTML shell loading the React frontend entrypoint.",
+  "frontend/src/App.tsx": "Main React UI showing bot avatar, setup instructions, and utilities using data from the backend canister.",
+  "frontend/src/hooks/useActor.ts": "Hook that creates and manages the backend actor, refreshing queries when the identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React context and provider managing Internet Identity authentication and persistence.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching greeting card and static avatar from the backend.",
+  "frontend/src/index.css": "Duplicate Tailwind base stylesheet defining design tokens and theme variables.",
+  "frontend/src/main.tsx": "Application entrypoint rendering React with Internet Identity and React Query providers.",
+  "frontend/tailwind.config.js": "Tailwind configuration defining dark mode, content paths, extended theme colors, animations, and plugins for typography, container queries, and animations.",
+  "project_state.json": "Project metadata describing a Google Chat bot integrated with Jira, including architecture notes, known issues, and a list of feature definitions."
+}

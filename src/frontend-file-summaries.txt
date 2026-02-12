@@ -1,0 +1,7 @@
+{
+  "frontend/src/App.tsx": "Main application component displaying the AIOPS bot avatar, setup instructions for Google Apps Script configuration, and feature overview with a polished card-based UI.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching greeting card data and static avatar from the backend canister.",
+  "frontend/src/config.ts": "Configuration loader that fetches environment settings from env.json and creates backend actor instances with proper agent options.",
+  "frontend/code.gs": "Complete single-file Google Apps Script for Google Chat bot with Jira JSM integration, including welcome cards, project listing, incident viewing/creation with guided multi-step flow, FAQ system, and comprehensive setup documentation with Script Properties configuration.",
+  "frontend/src/index.css": "Global CSS file with Tailwind directives and OKLCH color system variables for light and dark modes, defining the complete design token system for the application."
+}

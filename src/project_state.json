@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Develop a Google Chat bot in Google Apps Script that integrates with Jira Service Management to list projects/incidents, create incidents via a guided flow, and provide a cleaner card-based UI with richer responses (avatar/cards) plus AI-like Q&A and incident status capture/display.",
+  "architectural_notes": [
+    "Target platform is Google Chat App built in Google Apps Script (code.gs) deployed via Google Cloud/App Script.",
+    "UI should be implemented using Google Chat card messages for structured/boxed responses where applicable.",
+    "Bot integrates with Jira REST API v3 / JSM for project search, issue search, and issue creation.",
+    "Apps Script file structure can remain as a single Code.gs file; optionally split into multiple .gs files (e.g., jira.gs for Jira API, ui.gs for card builders, utils.gs for helpers) since Apps Script loads all .gs files into one global namespace."
+  ],
+  "known_issues": [
+    "Jira API token and email are hardcoded in the script; secrets should be stored securely (e.g., Apps Script Properties/Secret Manager) and removed from source."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-refactor-all-google-chat-responses-in-the-single-apps-script-file-code-gs-to-use-google-chat-card-messages-cardsv2-with-a-clean-boxed-structured-layout-instead-of-plain-text-where-practical-welcome-help-project-list-incident-list-incident-creation-confirmation-and-general-q-a-responses",
+      "title": "Refactor all Google Chat responses in the single Apps Script file (code.gs) to use Google Chat Card messages (cardsV2) with a clean, boxed/structured layout instead of plain text where practical (welcome/help, project list, incident list, incident creation confirmation, and general Q&A responses).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-greeting-default-behavior-so-that-when-a-user-types-hii-and-other-greetings-the-bot-introduces-itself-explicitly-as-aiops-bot-and-responds-with-a-polished-card-header-that-includes-an-avatar-icon-image-via-card-header-icon-imageurl-where-supported",
+      "title": "Update the greeting/default behavior so that when a user types \"hii\" (and other greetings) the bot introduces itself explicitly as \"AIOPS bot\" and responds with a polished card header that includes an avatar/icon image (via card header icon/imageUrl where supported).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-extend-the-incident-creation-guided-flow-to-also-capture-an-incident-status-from-the-user-in-addition-to-summary-and-priority-validate-the-status-against-an-allowed-set-and-display-the-chosen-status-prominently-in-the-incident-confirmation-alert-card",
+      "title": "Extend the incident creation guided flow to also capture an incident status from the user (in addition to summary and priority), validate the status against an allowed set, and display the chosen status prominently in the incident confirmation/alert card.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-the-ask-any-question-fallback-so-the-bot-returns-more-relevant-answers-than-the-current-small-faq-by-expanding-the-intent-keyword-matching-knowledge-base-incident-concepts-priorities-portal-urls-bot-commands-and-jira-jsm-basics-and-ensuring-unknown-questions-yield-a-helpful-guidance-card-with-example-prompts",
+      "title": "Improve the 'ask any question' fallback so the bot returns more relevant answers than the current small FAQ by expanding the intent/keyword matching knowledge base (incident concepts, priorities, portal URLs, bot commands, and Jira/JSM basics) and ensuring unknown questions yield a helpful guidance card with example prompts.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-hardcoded-jira-credentials-from-code-gs-and-load-jira-email-and-jira-api-token-securely-from-apps-script-properties-e-g-script-properties-while-keeping-the-existing-jira-base-url-project-key-and-issue-type-id-configurable-add-clear-error-messaging-when-required-properties-are-missing",
+      "title": "Remove hardcoded Jira credentials from code.gs and load Jira email and Jira API token securely from Apps Script Properties (e.g., Script Properties) while keeping the existing Jira base URL, project key, and issue type ID configurable; add clear error messaging when required properties are missing.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-one-coherent-visual-theme-to-all-google-chat-cards-consistent-spacing-section-headers-label-value-formatting-and-restrained-color-accents-to-make-the-ui-look-neat-and-consistent",
+      "title": "Apply one coherent visual theme to all Google Chat cards (consistent spacing, section headers, label/value formatting, and restrained color accents) to make the UI look neat and consistent.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-deliver-a-single-copy-paste-ready-google-apps-script-file-for-the-google-chat-bot-by-ensuring-frontend-code-gs-contains-the-complete-final-code-gs-implementation-no-truncated-unfinished-sections-with-all-required-chat-entry-points-and-the-existing-card-based-cardsv2-responses",
+      "title": "Deliver a single, copy‑paste ready Google Apps Script file for the Google Chat bot by ensuring `frontend/code.gs` contains the complete final Code.gs implementation (no truncated/unfinished sections) with all required Chat entry points and the existing card-based (cardsV2) responses.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-include-in-frontend-code-gs-clear-inline-setup-guidance-as-comments-listing-the-required-script-properties-keys-and-what-each-one-controls-matching-the-configuration-keys-used-by-getconfig-jira-base-url-jira-email-jira-api-token-jsm-project-key-incident-issue-type-id-bot-avatar-url",
+      "title": "Include in `frontend/code.gs` clear, inline setup guidance (as comments) listing the required Script Properties keys and what each one controls, matching the configuration keys used by `getConfig()` (JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN, JSM_PROJECT_KEY, INCIDENT_ISSUE_TYPE_ID, BOT_AVATAR_URL).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Redesign Chat UI to use neat Google Chat card-based messages (boxed/structured layout) including welcome response for 'hi' and other messages",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Add bot persona/polish: greet as 'AIOPS bot' with avatar/profile styling where possible in Google Chat",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Improve Q&A so user questions get relevant AI-like answers beyond the small FAQ fallback",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Extend incident creation flow to capture incident status from user input and display it in the incident alert/confirmation UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Combine all bot code into one final, fully redesigned, copy-paste-ready Apps Script file (single Code.gs) including cards UI, avatar, incident status capture, improved Q&A, and Jira/JSM integration",
+      "reqIds": [],
+      "status": "in_progress"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AIOPS Jira Incident Chat Bot",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T05:38:20.565Z",
+  "summary": "BuildRequest lists no explicit requirements or acceptance criteria. The diff introduces/changes multiple components beyond a single Apps Script file, including backend canister code and React frontend pieces, which appear outside the requested “final single-file copy-paste-ready Google Chat bot (frontend/code.gs)” scope and may conflict with the stated constraints.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Backend canister update adding/altering greeting card and static avatar endpoints (Motoko actor with getGreetingCard/getStaticAvatar).",
+      "reason": "BuildRequest scope centers on a single-file Google Apps Script bot implementation (frontend/code.gs) and explicitly discourages introducing/depending on additional backend services; no requirement requested backend canister changes.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "React frontend updates for displaying an AIOPS bot avatar/instructions and adding React Query hooks and config loader for backend actor instances.",
+      "reason": "BuildRequest asks for a final single-file copy‑paste‑ready Apps Script bot; no requirement requested UI/frontend React app changes.",
+      "evidence": [
+        "frontend-file-summaries.txt (frontend/src/App.tsx, frontend/src/hooks/useQueries.ts, frontend/src/config.ts, frontend/src/index.css)"
+      ]
+    },
+    {
+      "description": "Expanded Google Apps Script bot implementation including multi-step incident creation flow, FAQ/Q&A fallback, cardsV2 UI, and script-properties based configuration.",
+      "reason": "Although aligned with the title, these are still “features implemented” without any explicit requirements in the BuildRequest (Requirements: none).",
+      "evidence": [
+        "frontend/code.gs"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/code.gs",
+    "project_state.json"
+  ]
+}
